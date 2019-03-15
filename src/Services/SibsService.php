@@ -36,6 +36,7 @@ class SibsService
      */
     public function checkout(array $request): PaymentInterface
     {
+        echo strtoupper($request['brand']); exit();
         if (Arr::exists($this->brandCards, strtoupper($request['brand']))) {
             $payment = new PaymentWithCard(
                 $request['amount'],
