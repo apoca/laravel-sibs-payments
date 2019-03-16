@@ -1,0 +1,43 @@
+{
+  "name": "apoca/laravel-sibs-payments",
+  "description": "This will made payment by sibs",
+  "type": "library",
+  "keywords": [
+    "http",
+    "rest",
+    "mbway",
+    "web service",
+    "sibs",
+    "laravel sibs"
+  ],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Miguel Vieira",
+      "email": "vieira@miguelvieira.com.pt"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.3"
+  },
+  "autoload": {
+    "psr-4": {
+      "Apoca\\Sibs\\": "src/"
+    }
+  },
+  "config": {
+    "sort-packages": true
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Apoca\\Sibs\\SibsServiceProvider"
+      ],
+      "aliases": {
+        "Sibs": "Apoca\\Sibs\\Facade\\Sibs"
+      }
+    }
+  },
+  "minimum-stability": "dev",
+  "prefer-stable": true
+}
