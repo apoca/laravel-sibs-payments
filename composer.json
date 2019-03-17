@@ -1,15 +1,24 @@
 {
   "name": "apoca/laravel-sibs-payments",
-  "description": "This will made payment by sibs",
+  "description": "Laravel library to communicate with SIBS - Open Payment Platform.",
   "homepage": "https://github.com/apoca/laravel-sibs-payments",
   "type": "library",
   "keywords": [
     "http",
     "rest",
     "mbway",
+    "payments",
     "web service",
     "sibs",
-    "laravel sibs"
+    "laravel",
+    "mobile payment",
+    "VISA",
+    "MASTER",
+    "AMEX",
+    "VPAY",
+    "MAESTRO",
+    "VISADEBIT",
+    "VISAELECTRON"
   ],
   "license": "MIT",
   "authors": [
