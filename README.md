@@ -69,32 +69,32 @@ $response = Sibs::checkout($request)->pay();
 #### Response
 
 ```JSON
-{#1011 ▼
-  +"status": 200
-  +"response": {#1041 ▼
-    +"id": "8ac7a4a1698215e6016988ca03283305"
-    +"paymentType": "DB"
-    +"paymentBrand": "VISA"
-    +"amount": "102.34"
-    +"currency": "EUR"
-    +"descriptor": "4392.6373.4275 OPP_Channel "
-    +"result": {#1039 ▼
-      +"code": "000.100.110"
-      +"description": "Request successfully processed in 'Merchant in Integrator Test Mode'"
-    }
-    +"card": {#1026 ▼
-      +"bin": "420000"
-      +"last4Digits": "0000"
-      +"holder": "Jane Jones"
-      +"expiryMonth": "05"
-      +"expiryYear": "2020"
-    }
-    +"risk": {#1036 ▼
-      +"score": "100"
-    }
-    +"buildNumber": "699e422a79444128a09e7d5d75eb187a99e8b3f3@2019-03-15 04:42:21 +0000"
-    +"timestamp": "2019-03-16 23:15:34+0000"
-    +"ndc": "8a8294185332bbe601533754724914d9_ac17f15fd3784600bfedc998c7f0c35e"
+{
+  "status": 200,
+  "response": {
+    "id":"8ac7a4a26982228701698db398cf05ee",
+      "paymentType":"DB",
+      "paymentBrand":"VISA",
+      "amount":"92.00",
+      "currency":"EUR",
+      "descriptor":"2302.8463.4825 OPP_Channel ",
+      "result":{
+        "code":"000.100.110",
+        "description":"Request successfully processed in 'Merchant in Integrator Test Mode'"
+      },
+      "card":{
+        "bin":"420000",
+        "last4Digits":"0000",
+        "holder":"Jane Jones",
+        "expiryMonth":"05",
+        "expiryYear":"2020"
+      },
+      "risk":{
+        "score":"100"
+      },
+      "buildNumber":"699e422a79444128a09e7d5d75eb187a99e8b3f3@2019-03-15 04:42:21 +0000",
+      "timestamp":"2019-03-17 22:09:12+0000",
+      "ndc":"8a8294185332bbe601533754724914d9_db6237eaf4b247ca99e4f917c5ca2943"
   }
 }
 ```
