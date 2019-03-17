@@ -1,6 +1,7 @@
 {
   "name": "apoca/laravel-sibs-payments",
   "description": "This will made payment by sibs",
+  "homepage": "https://github.com/apoca/laravel-sibs-payments",
   "type": "library",
   "keywords": [
     "http",
