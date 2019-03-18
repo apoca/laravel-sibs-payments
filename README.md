@@ -1,4 +1,5 @@
 # laravel-sibs-payments
+[![Build Status](https://travis-ci.org/apoca/laravel-sibs-payments.svg?branch=master)](https://travis-ci.org/apoca/laravel-sibs-payments)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/apoca/laravel-sibs-payments/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/apoca/laravel-sibs-payments/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/apoca/laravel-sibs-payments/v/stable)](https://packagist.org/packages/apoca/laravel-sibs-payments)
 [![Total Downloads](https://poser.pugx.org/apoca/laravel-sibs-payments/downloads)](https://packagist.org/packages/apoca/laravel-sibs-payments)
