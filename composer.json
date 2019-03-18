@@ -24,16 +24,30 @@
   "authors": [
     {
       "name": "Miguel Vieira",
-      "email": "vieira@miguelvieira.com.pt"
+      "email": "vieira@miguelvieira.com.pt",
+      "homepage": "http://www.miguelvieira.com.pt"
     }
   ],
   "require": {
-    "php": "^7.1",
+    "php": "^7.2",
+    "ext-json": "*",
     "guzzlehttp/guzzle": "^6.3"
+  },
+  "require-dev": {
+    "laravel/framework": "^5.8",
+    "mockery/mockery": "^1.2",
+    "php-coveralls/php-coveralls": "^2.1",
+    "phpunit/php-code-coverage": "^7.0",
+    "phpunit/phpunit": "^8.0"
   },
   "autoload": {
     "psr-4": {
       "Apoca\\Sibs\\": "src/"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "Apoca\\Sibs\\Tests\\": "tests/"
     }
   },
   "config": {
