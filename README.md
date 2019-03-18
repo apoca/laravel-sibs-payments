@@ -4,7 +4,7 @@
 [![Total Downloads](https://poser.pugx.org/apoca/laravel-sibs-payments/downloads)](https://packagist.org/packages/apoca/laravel-sibs-payments)
 [![License](https://poser.pugx.org/apoca/laravel-sibs-payments/license)](https://packagist.org/packages/apoca/laravel-sibs-payments)
 
-Laravel library to communicate with SIBS - Open Payment Platform. The library includes payments: VISA, MASTER, AMEX, VPAY, MAESTRO, VISADEBIT, VISAELECTRON.
+Laravel library to communicate with [SIBS - Open Payment Platform](https://www.sibs-international.com/). The library includes payments: VISA, MASTER, AMEX, VPAY, MAESTRO, VISADEBIT, VISAELECTRON.
 
 ## Contents
 
@@ -34,7 +34,7 @@ If you don't use auto-discovery, add the ServiceProvider to the providers array 
 Apoca\Sibs\SibsServiceProvider::class,
 ```
 
-If you want to use the facade to log messages, add this to your facades in app.php:
+If you want to use the facade, add this to your facades in app.php:
 
 ```php
 'Sibs' => Apoca\Sibs\Facade\Sibs::class,
@@ -64,7 +64,6 @@ $request = [
 ];
 $response = Sibs::checkout($request)->pay();
 ```
-[See oficial SIBS api reference](https://sibs.docs.onlinepayments.pt/)
 
 #### Response
 
@@ -75,7 +74,7 @@ $response = Sibs::checkout($request)->pay();
     "id":"8ac7a4a26982228701698db398cf05ee",
       "paymentType":"DB",
       "paymentBrand":"VISA",
-      "amount":"92.00",
+      "amount":"102.34",
       "currency":"EUR",
       "descriptor":"2302.8463.4825 OPP_Channel ",
       "result":{
@@ -98,6 +97,8 @@ $response = Sibs::checkout($request)->pay();
   }
 }
 ```
+
+[See oficial SIBS api reference](https://sibs.docs.onlinepayments.pt/)
 
 ## Feedback
 

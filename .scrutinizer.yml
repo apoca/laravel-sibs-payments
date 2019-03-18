@@ -1,5 +1,15 @@
+build:
+  environment:
+    php: 7.2
+
 filter:
-  excluded_paths: [tests/*]
+  excluded_paths:
+    - "tests/*"
+    - "routes/*"
+    - "config/*"
+    - "stubs/*"
+  dependency_paths:
+    - "vendor/*"
 
 checks:
   php:
