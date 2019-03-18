@@ -27,3 +27,7 @@ composer.phar
 composer.lock
 .DS_Store
 Thumbs.db
+
+# tests
+.build
+.phpunit.result.cache
