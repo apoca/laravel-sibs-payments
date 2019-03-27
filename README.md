@@ -1,4 +1,5 @@
 # laravel-sibs-payments
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/954f2d4ccbef401099ddc63ef6e824de)](https://app.codacy.com/app/apoca/laravel-sibs-payments?utm_source=github.com&utm_medium=referral&utm_content=apoca/laravel-sibs-payments&utm_campaign=Badge_Grade_Dashboard)
 [![Build Status](https://travis-ci.org/apoca/laravel-sibs-payments.svg?branch=master)](https://travis-ci.org/apoca/laravel-sibs-payments)
 [![Scrutinizer Code Quality](https://scrutinizer-ci.com/g/apoca/laravel-sibs-payments/badges/quality-score.png?b=master)](https://scrutinizer-ci.com/g/apoca/laravel-sibs-payments/?branch=master)
 [![Latest Stable Version](https://poser.pugx.org/apoca/laravel-sibs-payments/v/stable)](https://packagist.org/packages/apoca/laravel-sibs-payments)
