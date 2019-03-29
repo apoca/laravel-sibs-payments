@@ -2,21 +2,36 @@
 
 namespace Apoca\Sibs\Tests;
 
-use Illuminate\Support\Facades\Facade;
-use Mockery as m;
-use PHPUnit\Framework\TestCase as BaseTestCase;
+use Apoca\Sibs\Facade\Sibs;
+use Apoca\Sibs\SibsServiceProvider;
+use Orchestra\Testbench\TestCase as OrchestraTestCase;
 
 /**
  * Class TestCase
  *
  * @package Apoca\Sibs\Tests
  */
-class TestCase extends BaseTestCase
+class TestCase extends OrchestraTestCase
 {
-    public function tearDown(): void
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     *
+     * @return array
+     */
+    protected function getPackageProviders($app): array
     {
-        Facade::clearResolvedInstances();
-        parent::tearDown();
-        m::close();
+        return [SibsServiceProvider::class];
+    }
+
+    /**
+     * @param \Illuminate\Foundation\Application $app
+     *
+     * @return array
+     */
+    protected function getPackageAliases($app): array
+    {
+        return [
+            'Sibs' => Sibs::class,
+        ];
     }
 }
