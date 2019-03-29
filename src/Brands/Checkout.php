@@ -47,9 +47,9 @@ class Checkout implements PaymentInterface
      */
     public function __construct(float $amount, string $currency, string $paymentType)
     {
-        $this->amount = $amount;
-        $this->currency = $currency;
-        $this->paymentType = $paymentType;
+        $this->setAmount($amount);
+        $this->setCurrency($currency);
+        $this->setPaymentType($paymentType);
 
         if (config('sibs.mode') === 'test') {
             $this->clientConfig = [
