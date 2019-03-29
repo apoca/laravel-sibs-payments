@@ -3,6 +3,7 @@
 namespace Apoca\Sibs\Services;
 
 use Apoca\Sibs\Brands\Card;
+use Apoca\Sibs\Brands\Checkout;
 use Apoca\Sibs\Brands\PaymentWithCard;
 use Apoca\Sibs\Contracts\PaymentInterface;
 use Exception;
@@ -23,7 +24,13 @@ class SibsService
     public function checkout(array $request): PaymentInterface
     {
         switch (strtoupper($request['brand'])) {
-            case 'VISA' || 'MASTER' || 'AMEX' || 'VPAY' || 'MAESTRO' || 'VISADEBIT' || 'VISAELECTRON':
+            case 'MASTER':
+            case 'AMEX':
+            case 'VPAY':
+            case 'MAESTRO':
+            case 'VISADEBIT':
+            case 'VISAELECTRON':
+            case 'VISA':
                 $payment = new PaymentWithCard(
                     $request['amount'],
                     strtoupper($request['currency']),
@@ -37,6 +44,9 @@ class SibsService
                         $request['cvv']
                     )
                 );
+                break;
+            case 'CHECKOUT':
+                $payment = new Checkout($request['amount'], $request['currency'], $request['type']);
                 break;
             case 'SIBS_MULTIBANCO':
                 throw new \RuntimeException('SIBS_MULTIBANCO Service Payment not found.', 404);
