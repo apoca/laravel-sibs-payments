@@ -3,6 +3,7 @@
          backupStaticAttributes="false"
          bootstrap="vendor/autoload.php"
          colors="true"
+         verbose="true"
          convertErrorsToExceptions="true"
          convertNoticesToExceptions="true"
          convertWarningsToExceptions="true"
@@ -14,6 +15,10 @@
         </whitelist>
     </filter>
     <testsuites>
+       <testsuite name="Facade">
+            <directory suffix="Test.php">./tests/Facade</directory>
+        </testsuite>
+
         <testsuite name="Feature">
             <directory suffix="Test.php">./tests/Feature</directory>
         </testsuite>
