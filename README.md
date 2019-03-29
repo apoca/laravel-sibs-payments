@@ -50,7 +50,50 @@ php artisan vendor:publish --provider="Apoca\Sibs\SibsServiceProvider"
 
 ## Usage
 
-Sending the request parameters server-to-server and receive the payment response synchronously.
+### COPYandPAY Integration Guide
+
+1. Prepare the checkout
+
+First, perform a server-to-server POST request to prepare the checkout with the required data, including the order type, amount and currency. The response to a successful request is a JSON string with an id, which is required in the second step to create the payment form.
+
+```php
+$request = [
+    'brand' => 'CHECKOUT',
+    'amount' => 100,
+    'currency' => 'EUR',
+    'type' => 'DB'
+];
+
+$response = Sibs::checkout($request)->pay();
+```
+
+#### Response
+
+```JSON
+{
+  "status": 200,
+  "response": {
+    "result":{
+        "code":"000.200.100",
+        "description":"successfully created checkout"
+      },
+      "buildNumber":"0dbf5028d176bc143baf9657d4d786f6372f4a83@2019-03-29 10:03:17 +0000",
+      "timestamp":"2019-03-29 11:27:15+0000",
+      "ndc":"E45186C4789C89A23E66D8DDA57A8586.uat01-vm-tx01",
+      "id":"E45186C4789C89A23E66D8DDA57A8586.uat01-vm-tx01"
+  }
+}
+```
+
+### Server-to-Server
+
+Sending the request parameters server-to-server and receive the payment response synchronously. 
+NOTE: This integration variant requires you to collect the card data which increases your PCI-compliance scope. If you want to minimize your PCI-compliance requirements, we recommend that you use COPYandPAY.
+
+You can perform different types of initial payments using our server-to-server REST API.
+
+- Preauthorization (PA)
+- Debit (DB)
 
 ```php
 $request = [

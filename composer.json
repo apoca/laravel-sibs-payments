@@ -36,6 +36,7 @@
   "require-dev": {
     "laravel/framework": "^5.8",
     "mockery/mockery": "^1.2",
+    "orchestra/testbench": "^3.8",
     "php-coveralls/php-coveralls": "^2.1",
     "phpunit/php-code-coverage": "^7.0",
     "phpunit/phpunit": "^8.0"
@@ -62,6 +63,14 @@
         "Sibs": "Apoca\\Sibs\\Facade\\Sibs"
       }
     }
+  },
+  "scripts": {
+    "test": [
+      "vendor/bin/phpunit --colors=always --debug --filter"
+    ],
+    "tests": [
+      "php -d memory_limit=512M vendor/bin/phpunit --colors=always --bootstrap vendor/autoload.php --testdox tests"
+    ]
   },
   "minimum-stability": "dev",
   "prefer-stable": true
