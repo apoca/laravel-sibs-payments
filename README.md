@@ -195,7 +195,7 @@ We'd love to get feedback on how you're using lambda-resize-image and things we 
 
 ## Contributing
 
-If you'd like to contribute to the project, feel free to submit a PR. See more: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+We'd love to get feedback on how you're using *lambda-resize-image* and things we could add to make this tool better. Feel.
 
 ## License
 
