@@ -25,9 +25,8 @@ class CheckoutTest extends TestCase
     /**
      * @test
      */
-    public function checkoutImplementsPaymentInterface(): void
+    public function checkoutImplementsPaymentInterfaceTest(): void
     {
         $this->assertInstanceOf(PaymentInterface::class, $this->checkout);
     }
-
 }

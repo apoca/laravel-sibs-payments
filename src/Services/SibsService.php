@@ -6,6 +6,7 @@ use Apoca\Sibs\Brands\Card;
 use Apoca\Sibs\Brands\Checkout;
 use Apoca\Sibs\Brands\PaymentWithCard;
 use Apoca\Sibs\Brands\PaymentWithMBWay;
+use Apoca\Sibs\Brands\Transaction;
 use Apoca\Sibs\Contracts\PaymentInterface;
 use Exception;
 
@@ -69,5 +70,17 @@ class SibsService
         }
 
         return $payment;
+    }
+
+    /**
+     * Get payment status
+     *
+     * @param string $checkoutId
+     *
+     * @return object
+     */
+    public function status(string $checkoutId): object
+    {
+        return (new Transaction($checkoutId))->status();
     }
 }
