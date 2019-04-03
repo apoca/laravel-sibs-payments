@@ -85,6 +85,50 @@ $response = Sibs::checkout($request)->pay();
 }
 ```
 
+2. Create the payment form
+
+- The checkout's id that you got in the response from step 1
+
+```HTML
+<script src="https://test.oppwa.com/v1/paymentWidgets.js?checkoutId={response->id}"></script>
+```
+
+- The shopperResultUrl, which is the page on your site where the customer should be redirected to after the payment is processed and the brands that will be available.
+
+```HTML
+<form action="{shopperResultUrl}" class="paymentWidgets" data-brands="VISA MASTER AMEX"></form>
+```
+
+3. Get the payment status (see step 1)
+
+```
+$response = Sibs::status($response->response->id);
+```
+
+```JSON
+{
+  "status": 400,
+  "response": {
+    "result":{
+        "code":"200.300.404",
+        "description":"invalid or missing parameter",
+        "parameterErrors": [
+          {
+            "name": "entityId",
+            "value": "8a8294185332bbe601533754724914d9",
+            "message": "is not an allowed parameter"
+          }
+        ]
+      },
+      "buildNumber":"",
+      "timestamp":"2019-03-29 11:27:15+0000",
+      "ndc":"89C42801E79302B0E75520C4A793121D.uat01-vm-tx03"
+  }
+}
+```
+
+NOTE: You'll receive and error code 400, because you need an entity key approved by [sibs](https://www.sibs-international.com/).
+
 ### Server-to-Server
 
 Sending the request parameters server-to-server and receive the payment response synchronously. 
@@ -151,7 +195,7 @@ We'd love to get feedback on how you're using lambda-resize-image and things we 
 
 ## Contributing
 
-If you'd like to contribute to the project, feel free to submit a PR. See more: [CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+We'd love to get feedback on how you're using *lambda-resize-image* and things we could add to make this tool better. Feel.
 
 ## License
 
