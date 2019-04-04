@@ -5,6 +5,7 @@ namespace Apoca\Sibs\Services;
 use Apoca\Sibs\Brands\Card;
 use Apoca\Sibs\Brands\Checkout;
 use Apoca\Sibs\Brands\PaymentWithCard;
+use Apoca\Sibs\Brands\PaymentWithMBWay;
 use Apoca\Sibs\Brands\Transaction;
 use Apoca\Sibs\Contracts\PaymentInterface;
 use Exception;
@@ -56,7 +57,13 @@ class SibsService
                 throw new \RuntimeException('DIRECTDEBIT_SEPA Service Payment not found.', 404);
                 break;
             case 'MBWAY':
-                throw new \RuntimeException('MBWAY Service Payment not found.', 404);
+                $payment = new PaymentWithMBWay(
+                    $request['amount'],
+                    strtoupper($request['currency']),
+                    strtoupper($request['brand']),
+                    strtoupper($request['type']),
+                    $request['accountId']
+                );
                 break;
             default:
                 throw new \RuntimeException('Sibs Service Payment not found.', 404);
