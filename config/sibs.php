@@ -11,4 +11,9 @@ return [
         'token' => env('SIBS_AUTH_TOKEN', 'Bearer OGE4Mjk0MTg1MzMyYmJlNjAxNTMzNzU0NzZjMzE1Mjd8RzV3UDVUekY1aw=='),
     ],
     'entity' => env('SIBS_ENTITY', '21075'),
+
+    /*
+     * After completing your SIBS registration you will receive a key to decrypt its notifications via webhook.
+     */
+    'webHook' => env('SIBS_WEBHOOK_KEY', '')
 ];
