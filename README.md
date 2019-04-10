@@ -154,7 +154,22 @@ $request = [
 $response = Sibs::checkout($request)->pay();
 ```
 
-#### Response
+### Asynchronous Server-to-Server MBWay
+In an asynchronous workflow a redirection takes place to allow the account holder to complete/verify the payment.<br/>
+Put the brand parameter equals to "MBWAY" and the type equals to PA. The accountId should be a phone number like this <country_dial_code#phone_number>.
+```php
+$request = [
+    'amount' => 10.44,
+    'currency' => 'EUR',
+    'brand' => 'MBWAY',
+    'type' => 'PA',
+    'accountId' => '351#911222111',
+];
+$response = Sibs::checkout($request)->pay();
+```
+
+If you are in test mode put the mode parameter on sibs config file equals to test.
+#### Response Example
 
 ```JSON
 {
@@ -187,15 +202,16 @@ $response = Sibs::checkout($request)->pay();
 }
 ```
 
+
 [See oficial SIBS api reference](https://sibs.docs.onlinepayments.pt/)
 
 ## Feedback
 
-We'd love to get feedback on how you're using lambda-resize-image and things we could add to make this tool better. Feel free to contact us at vieira@miguelvieira.com.pt
+We'd love to get feedback on how you're using laravel-sibs-payments and things we could add to make this tool better. Feel free to contact us at vieira@miguelvieira.com.pt
 
 ## Contributing
 
-We'd love to get feedback on how you're using *lambda-resize-image* and things we could add to make this tool better. Feel.
+We'd love to get feedback on how you're using *laravel-sibs-payments* and things we could add to make this tool better. Feel.
 
 ## License
 
