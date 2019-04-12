@@ -72,7 +72,7 @@ class Transaction
         try {
             $client = new Client($this->clientConfig);
 
-            $response = $client->post($this->endpoint . "checkouts/{$this->getCheckoutId()}/payment?entityId=" . config('sibs.authentication.entityId'),
+            $response = $client->get($this->endpoint . "checkouts/{$this->getCheckoutId()}/payment?entityId=" . config('sibs.authentication.entityId'),
                 [
                     'headers' => [
                         'Authorization' => config('sibs.authentication.token'),

@@ -33,6 +33,6 @@ class SibsServiceTest extends TestCase
         $response2 = Sibs::status($response->response->id);
 
         $this->assertSame($response->status, 200);
-        $this->assertSame($response2->status, 400);
+        $this->assertSame($response2->status, 200);
     }
 }
