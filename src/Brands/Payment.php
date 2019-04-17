@@ -27,6 +27,11 @@ abstract class Payment implements PaymentInterface
     protected $brand;
 
     /**
+     * @var array
+     */
+    protected $optionalParameters = [];
+
+    /**
      * @var string
      */
     protected $type;
@@ -38,13 +43,31 @@ abstract class Payment implements PaymentInterface
      * @param string $currency
      * @param string $brand
      * @param string $type
+     * @param array  $optionalParameters
      */
-    public function __construct(float $amount, string $currency, string $brand, string $type)
+    public function __construct(float $amount, string $currency, string $brand, string $type, array $optionalParameters)
     {
         $this->setAmount($amount);
         $this->setCurrency($currency);
         $this->setBrand($brand);
         $this->setType($type);
+        $this->setOptionalParameters($optionalParameters);
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptionalParameters(): array
+    {
+        return $this->optionalParameters;
+    }
+
+    /**
+     * @param array $optionalParameters
+     */
+    public function setOptionalParameters(array $optionalParameters): void
+    {
+        $this->optionalParameters = $optionalParameters;
     }
 
     /**

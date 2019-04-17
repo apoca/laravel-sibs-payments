@@ -39,17 +39,24 @@ class Checkout implements PaymentInterface
     protected $clientConfig = [];
 
     /**
+     * @var array
+     */
+    protected $optionalParameters = [];
+
+    /**
      * Checkout constructor.
      *
      * @param float  $amount
      * @param string $currency
      * @param string $paymentType
+     * @param array  $optionalParameters
      */
-    public function __construct(float $amount, string $currency, string $paymentType)
+    public function __construct(float $amount, string $currency, string $paymentType, array $optionalParameters)
     {
         $this->setAmount($amount);
         $this->setCurrency($currency);
         $this->setPaymentType($paymentType);
+        $this->setOptionalParameters($optionalParameters);
 
         if (config('sibs.mode') === 'test') {
             $this->clientConfig = [
@@ -57,6 +64,22 @@ class Checkout implements PaymentInterface
             ];
         }
         $this->endpoint = config('sibs.host') . config('sibs.version') . '/';
+    }
+
+    /**
+     * @return array
+     */
+    public function getOptionalParameters(): array
+    {
+        return $this->optionalParameters;
+    }
+
+    /**
+     * @param array $optionalParameters
+     */
+    public function setOptionalParameters(array $optionalParameters): void
+    {
+        $this->optionalParameters = $optionalParameters;
     }
 
     /**
@@ -130,18 +153,18 @@ class Checkout implements PaymentInterface
                     'Content-Length' => ob_get_length(),
                     'Authorization' => config('sibs.authentication.token'),
                 ],
-                'form_params' => $payload,
+                'form_params' => array_merge($payload, $this->getOptionalParameters()),
             ]);
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         } catch (ClientException $e) {
             $response = $e->getResponse();
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         }

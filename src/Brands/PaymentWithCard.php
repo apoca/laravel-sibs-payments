@@ -34,6 +34,7 @@ class PaymentWithCard extends Payment
      * @param string $currency
      * @param string $brand
      * @param string $type
+     * @param array  $optionalParameters
      * @param Card   $card
      */
     public function __construct(
@@ -41,9 +42,10 @@ class PaymentWithCard extends Payment
         string $currency,
         string $brand,
         string $type,
+        array $optionalParameters,
         Card $card
     ) {
-        parent::__construct($amount, $currency, $brand, $type);
+        parent::__construct($amount, $currency, $brand, $type, $optionalParameters);
         $this->card = $card;
 
         if (config('sibs.mode') === 'test') {
@@ -85,18 +87,18 @@ class PaymentWithCard extends Payment
                 'headers' => [
                     'Content-Type' => 'application/x-www-form-urlencoded',
                 ],
-                'form_params' => $payload,
+                'form_params' => array_merge($payload, $this->getOptionalParameters()),
             ]);
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         } catch (ClientException $e) {
             $response = $e->getResponse();
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         }

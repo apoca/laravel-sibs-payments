@@ -32,6 +32,7 @@ class PaymentWithCardsTest extends TestCase
             'expiry_month' => 5,
             'expiry_year' => 2020,
             'cvv' => 123,
+            'optionalParameters' => [],
         ];
 
         $response = Sibs::checkout($request)->pay();
