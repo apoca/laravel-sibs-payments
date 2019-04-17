@@ -61,7 +61,8 @@ $request = [
     'brand' => 'CHECKOUT',
     'amount' => 100,
     'currency' => 'EUR',
-    'type' => 'DB'
+    'type' => 'DB',
+    'optionalParameters' => [],
 ];
 
 $response = Sibs::checkout($request)->pay();
@@ -150,6 +151,7 @@ $request = [
     'expiry_month' => 05,
     'expiry_year' => 2020,
     'cvv' => 123,
+    'optionalParameters' => [],
 ];
 $response = Sibs::checkout($request)->pay();
 ```
@@ -164,6 +166,7 @@ $request = [
     'brand' => 'MBWAY',
     'type' => 'PA',
     'accountId' => '351#911222111',
+    'optionalParameters' => [],
 ];
 $response = Sibs::checkout($request)->pay();
 ```
