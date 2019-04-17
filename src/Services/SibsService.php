@@ -38,6 +38,7 @@ class SibsService
                     strtoupper($request['currency']),
                     strtoupper($request['brand']),
                     strtoupper($request['type']),
+                    $request['optionalParameters'],
                     new Card(
                         $request['number'],
                         $request['holder'],
@@ -48,7 +49,7 @@ class SibsService
                 );
                 break;
             case 'CHECKOUT':
-                $payment = new Checkout($request['amount'], $request['currency'], $request['type']);
+                $payment = new Checkout($request['amount'], $request['currency'], $request['type'], $request['optionalParameters']);
                 break;
             case 'SIBS_MULTIBANCO':
                 throw new \RuntimeException('SIBS_MULTIBANCO Service Payment not found.', 404);
@@ -62,7 +63,8 @@ class SibsService
                     strtoupper($request['currency']),
                     strtoupper($request['brand']),
                     strtoupper($request['type']),
-                    $request['accountId']
+                    $request['accountId'],
+                    $request['optionalParameters']
                 );
                 break;
             default:

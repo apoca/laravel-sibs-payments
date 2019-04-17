@@ -2,8 +2,8 @@
 
 namespace Apoca\Sibs\Tests\Feature;
 
-use Apoca\Sibs\Tests\TestCase;
 use Apoca\Sibs\Facade\Sibs;
+use Apoca\Sibs\Tests\TestCase;
 
 /**
  * Class CheckoutTest
@@ -26,7 +26,8 @@ class CheckoutTest extends TestCase
             'brand' => 'CHECKOUT',
             'amount' => 100,
             'currency' => 'EUR',
-            'type' => 'DB'
+            'type' => 'DB',
+            'optionalParameters' => [],
         ];
 
         $response = Sibs::checkout($request)->pay();

@@ -31,6 +31,7 @@ class PaymentWithMBWayTest extends TestCase
             'brand' => 'MBWAY',
             'type' => 'PA',
             'accountId' => '351#911222111',
+            'optionalParameters' => [],
         ];
 
         $response = Sibs::checkout($request)->pay();

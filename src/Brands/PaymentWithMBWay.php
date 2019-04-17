@@ -36,15 +36,17 @@ class PaymentWithMBWay extends Payment
      * @param string $brand
      * @param string $type
      * @param string $accountId
+     * @param array  $optionalParameters
      */
     public function __construct(
         float $amount,
         string $currency,
         string $brand,
         string $type,
-        string $accountId
+        string $accountId,
+        array $optionalParameters
     ) {
-        parent::__construct($amount, $currency, $brand, $type);
+        parent::__construct($amount, $currency, $brand, $type, $optionalParameters);
         $this->accountId = $accountId;
         $this->endpoint = config('sibs.host') . config('sibs.version') . '/';
     }
@@ -80,18 +82,18 @@ class PaymentWithMBWay extends Payment
                 'headers' => [
                     'Authorization' => config('sibs.authentication.token'),
                 ],
-                'form_params' => $payload,
+                'form_params' => array_merge($payload, $this->getOptionalParameters()),
             ]);
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         } catch (ClientException $e) {
             $response = $e->getResponse();
 
             $data->status = $response->getStatusCode();
-            $data->response = json_decode($response->getBody()->getContents());
+            $data->response = json_decode($response->getBody()->getContents(), false);
 
             return $data;
         }
