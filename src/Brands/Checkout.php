@@ -146,6 +146,13 @@ class Checkout implements PaymentInterface
                 'currency' => $this->currency,
                 'paymentType' => $this->paymentType,
             ];
+            if (config('sibs.mode') === 'test') {
+                $payload = array_merge($payload,
+                    [
+                        'customParameters[SIBS_ENV]' => 'QLY',
+                        'testMode' => 'EXTERNAL',
+                    ]);
+            }
 
             $response = $client->post($this->endpoint . 'checkouts', [
                 'headers' => [
