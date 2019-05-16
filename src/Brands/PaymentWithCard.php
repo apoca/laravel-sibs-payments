@@ -72,7 +72,7 @@ class PaymentWithCard extends Payment
                 'authentication.userId' => config('sibs.authentication.userId'),
                 'authentication.password' => config('sibs.authentication.password'),
                 'authentication.entityId' => config('sibs.authentication.entityId'),
-                'amount' => number_format($this->amount, 2),
+                'amount' => number_format($this->amount, 2, '.', ''),
                 'currency' => $this->currency,
                 'paymentBrand' => $this->brand,
                 'paymentType' => $this->type,

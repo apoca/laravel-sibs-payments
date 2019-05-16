@@ -65,7 +65,7 @@ class PaymentWithMBWay extends Payment
 
             $payload = [
                 'entityId' => config('sibs.authentication.entityId'),
-                'amount' => number_format($this->amount, 2),
+                'amount' => number_format($this->amount, 2, '.', ''),
                 'currency' => $this->currency,
                 'paymentBrand' => $this->brand,
                 'paymentType' => $this->type,
